@@ -130,3 +130,13 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+/**
+ * image sizes
+ */
+add_action('after_setup_theme', function ($post) {
+    add_image_size( 'c200', 200, 200, true );
+    add_image_size( 'c400', 400, 400, true );
+    add_image_size( 'c600', 600, 600, true );
+});
+
