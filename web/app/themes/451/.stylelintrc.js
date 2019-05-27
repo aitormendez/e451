@@ -1,6 +1,8 @@
 module.exports = {
   'extends': 'stylelint-config-standard',
   'rules': {
+    'color-hex-case': null,
+    'color-hex-length': null,
     'no-empty-source': null,
     'string-quotes': 'double',
     'at-rule-no-unknown': [
