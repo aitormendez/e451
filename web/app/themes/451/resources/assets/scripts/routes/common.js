@@ -5,7 +5,7 @@ import {
   Power2,
   Elastic,
   CSSPlugin,
-} from 'gsap/TweenMax';
+} from 'gsap/TweenMax'
 
 /* eslint-enable */
 
@@ -18,39 +18,41 @@ export default {
 
     let logo = document.getElementById('logo');
     let time, numero, divisor;
+    logo.addEventListener('transitionend', iteration);
 
-    logo.addEventListener('mouseover', sii);
-    logo.addEventListener('mouseout', noo);
-
-    function sii() {
-      logo.addEventListener('transitionend', duration);
-      logo.classList.toggle('change');
+    logo.addEventListener('mouseover', function() {
       logo.classList.add('w-color');
-    }
+      logo.classList.remove('stop');
+      change();
+    });
 
-    function noo() {
-      logo.removeEventListener('transitionend', duration);
+    logo.addEventListener('mouseout', function() {
       logo.classList.remove('w-color');
+      logo.classList.add('stop');
+      change();
+    });
+
+    function change() {
+      logo.classList.toggle('change');
     }
 
-    function duration() {
+    function iteration() {
       numero = Math.random();
 
       if (numero > 0.8) {
-        divisor = 1
+        divisor = 1;
       } else if (numero > 0.5) {
-        divisor = 3
+        divisor = 3;
       } else {
         divisor = 10;
       }
 
       time = (Math.random() + 0.4) / divisor;
       logo.style.setProperty('--animation-time', time + 's');
-      logo.classList.toggle('change');
+      change();
     }
-
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
   },
-};
+}

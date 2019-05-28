@@ -13,7 +13,7 @@
     padding-bottom: $pad-3;
     background-clip: text;
     -webkit-background-clip: text;
-    transition: var(--animation-time) ease;
+    transition: background-color var(--animation-time) ease;
     background-color: var(--color-1);
     color: #000;
 
@@ -23,6 +23,10 @@
 
     &.w-color {
       -webkit-text-fill-color: transparent;
+    }
+
+    &.stop {
+      transition: none;
     }
   }
 

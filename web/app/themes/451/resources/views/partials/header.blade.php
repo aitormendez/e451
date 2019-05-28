@@ -1,6 +1,6 @@
 <header class="banner">
   <div class="container">
-    <a id="logo" class="brand" href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a>
+    <a id="logo" class="brand color-1" href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a>
     <nav class="nav-primary">
       @if (has_nav_menu('primary_navigation'))
       {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
