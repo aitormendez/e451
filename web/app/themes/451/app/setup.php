@@ -138,5 +138,6 @@ add_action('after_setup_theme', function ($post) {
     add_image_size( 'c200', 200, 200, true );
     add_image_size( 'c400', 400, 400, true );
     add_image_size( 'c600', 600, 600, true );
+    add_image_size( 'c1000', 1000, 1000, true );
 });
 
