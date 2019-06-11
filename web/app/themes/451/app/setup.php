@@ -6,6 +6,7 @@ use Roots\Sage\Container;
 use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
+use StoutLogic\AcfBuilder\FieldsBuilder;
 
 /**
  * Theme assets
@@ -141,3 +142,15 @@ add_action('after_setup_theme', function ($post) {
     add_image_size( 'c1000', 1000, 1000, true );
 });
 
+/**
+ * Initialize ACF Builder
+ */
+add_action('init', function () {
+    collect(glob(config('theme.dir').'/app/fields/*.php'))->map(function ($field) {
+        return require_once($field);
+    })->map(function ($field) {
+        if ($field instanceof FieldsBuilder) {
+            acf_add_local_field_group($field->build());
+        }
+    });
+});
